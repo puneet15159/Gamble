@@ -8,6 +8,9 @@ day=1;
 totalEarning=0;
 todayBudget=0;
 max=0;
+loseAmount=0
+winAmount=0
+lastday=3
 
 while (( day < numberOfDays+1 ))
 do
@@ -34,26 +37,24 @@ do
 	then
 
 		echo "you won for day $day"
-		if [[ $day -eq 3 ]]
-		then
-			echo "you can continue to next month"
-		fi
+		winAmount=$(($winAmount+$todayBudget))
 
 	else
 		echo "you lost for day $day"
-		 if [[ $day -eq 3 ]]
-      then
-         echo "you cannot continue to next month"
-      fi
+		loseAmount=$(($lossAmount+$todayBudget))
 	fi
-
-#	if [[ $todayBudget -gt max ]]
-#	then
-#		max=$(($todayBudget))
-#		luckyDay=$(($day))
-#	fi
 
 	echo "earning till now $todayBudget"
 	day=$(($day+1))
+
+	if [[ $day -eq 4 ]] 
+	then
+		if [[ $winAmount -lt $loseAmount ]]
+		then
+			echo "Donot continue to next month........."
+		else
+			echo "Continue to next month........."
+		fi
+	fi
 
 done
