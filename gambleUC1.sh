@@ -1,5 +1,5 @@
 #!/bin/bash
 
-dailyBudget=100;
-betPerGame=1;
+readonly dailyBudget=100;
+readonly betPerGame=1;
 
