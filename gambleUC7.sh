@@ -47,12 +47,13 @@ do
       fi
 	fi
 
-	if [[ $todayBudget -gt max ]]
-	then
-		max=$(($todayBudget))
-		luckyDay=$(($day))
-	fi
+#	if [[ $todayBudget -gt max ]]
+#	then
+#		max=$(($todayBudget))
+#		luckyDay=$(($day))
+#	fi
 
 	echo "earning till now $todayBudget"
 	day=$(($day+1))
+
 done
