@@ -1,7 +1,8 @@
 #!/bin/bash
 
 dailyBudget=100;
-betPerGame=1;
+
+readonly betPerGame=1;
 
 bet=$(($RANDOM%2))
 
