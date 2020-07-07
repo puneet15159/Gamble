@@ -1,12 +1,15 @@
 #!/bin/bash
 
 dailyBudget=100;
-betPerGame=1;
+readonly betPerGame=1;
+readonly numberOfDays=20
+
 day=0;
 totalEarning=0;
-while (( day < 30 ))
+
+while (( day < numberOfDays ))
 do
-        while (( 1 ))
+        while [[ $dailyBudget -lt 150 ]] && [[ $dailyBudget -gt 50 ]]
         do
                 bet=$(($RANDOM%2))
 
@@ -17,10 +20,7 @@ do
         dailyBudget=$(($dailyBudget+$betPerGame))
         fi
 
-        if [[ $dailyBudget -ge 150 ]] || [[ $dailyBudget -le 50 ]]
-        then
-        break;
-        fi
+
         done
 
    totalEarning=$(($dailyBudget+$totalEarning))
@@ -36,4 +36,3 @@ then
 else
         echo "Loss"
 fi
-
