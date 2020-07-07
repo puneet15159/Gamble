@@ -2,14 +2,14 @@
 
 readonly dailyBudget=100;
 readonly betPerGame=1;
-readonly numberOfDays=30;
+readonly numberOfDays=3;
 
 day=1;
 totalEarning=0;
 todayBudget=0;
 max=0;
 
-while (( day < numberOfDays ))
+while (( day < numberOfDays+1 ))
 do
 	todayBudget=$(($todayBudget+$dailyBudget))
 	upperLimit=$(( ($todayBudget/2)+$todayBudget ))
@@ -32,9 +32,19 @@ do
 
 	if [[ $todayBudget -eq $upperLimit ]]
 	then
+
 		echo "you won for day $day"
+		if [[ $day -eq 3 ]]
+		then
+			echo "you can continue to next month"
+		fi
+
 	else
 		echo "you lost for day $day"
+		 if [[ $day -eq 3 ]]
+      then
+         echo "you cannot continue to next month"
+      fi
 	fi
 
 	if [[ $todayBudget -gt max ]]
@@ -46,5 +56,3 @@ do
 	echo "earning till now $todayBudget"
 	day=$(($day+1))
 done
-
-echo "lucky day is day $luckyDay"
